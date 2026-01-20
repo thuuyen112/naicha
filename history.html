@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>台灣珍珠奶茶 | 發展歷史</title>
+<style>
+    /* --- CÀI ĐẶT CƠ BẢN (Giống trang chủ) --- */
+    body {
+        background-color: #2c4c3b; /* Màu xanh đậm chủ đạo */
+        color: #1a2621;
+        font-family: "Songti TC", "Noto Serif TC", serif;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        text-align: center;
+    }
+
+    /* Tạo họa tiết "Trân châu" mờ cho nền Body */
+    body::before {
+        content: "";
+        position: fixed;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background-image: radial-gradient(#3e6350 15%, transparent 16%),
+                          radial-gradient(#3e6350 15%, transparent 16%);
+        background-size: 60px 60px;
+        background-position: 0 0, 30px 30px;
+        opacity: 0.3;
+        z-index: -2;
+        pointer-events: none;
+    }
+
+    /* --- TRANG TRÍ 2 BÊN (FLOATING DECOR) --- */
+    .decor-wrapper {
+        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        pointer-events: none; z-index: 1;
+    }
+
+    .decor-item {
+        position: absolute;
+        font-family: "Segoe UI Emoji", "Apple Color Emoji", sans-serif;
+        opacity: 0.8;
+        filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
+        animation: float 6s ease-in-out infinite;
+    }
+
+    /* Vị trí họa tiết (điều chỉnh một chút cho khác trang chủ) */
+    .d-1 { top: 5%; left: 3%; font-size: 5rem; transform: rotate(-10deg); } /* Cốc trà */
+    .d-2 { top: 10%; right: 2%; font-size: 4rem; color: #8fbc8f; transform: rotate(15deg); } /* Lá */
+    .d-3 { bottom: 15%; left: 2%; font-size: 9rem; color: #1a2621; opacity: 0.1; font-family: "KaiTi", serif; } /* Chữ Hán */
+    .d-4 { bottom: 5%; right: 4%; font-size: 3rem; opacity: 0.6; } /* Trân châu */
+    .d-5 { top: 40%; left: -15px; font-size: 2.5rem; transform: rotate(30deg); opacity: 0.5; } 
+    .d-6 { top: 70%; right: -10px; font-size: 2.5rem; transform: rotate(-30deg); opacity: 0.5; }
+
+    @keyframes float {
+        0%, 100% { transform: translateY(0) rotate(var(--r, 0deg)); }
+        50% { transform: translateY(-15px) rotate(var(--r, 0deg)); }
+    }
+
+    /* --- CONTAINER CHÍNH --- */
+    .content-box {
+        width: 85%;
+        max-width: 1000px;
+        margin: 40px auto;
+        background-color: rgba(255, 255, 255, 0.95);
+        padding: 50px 60px;
+        border: 2px solid #a2d2c2;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        position: relative;
+        z-index: 10;
+        text-align: center;
+    }
+
+    /* --- NAVIGATION --- */
+    nav { margin-bottom: 30px; text-align: left; }
+    nav a {
+        text-decoration: none;
+        color: #556b2f;
+        font-weight: bold;
+        font-size: 1.1em;
+        transition: all 0.3s;
+        border: 1px solid #556b2f;
+        padding: 8px 15px;
+        border-radius: 20px;
+    }
+    nav a:hover {
+        background-color: #556b2f;
+        color: #fff;
+    }
+
+    /* --- TIÊU ĐỀ CHÍNH --- */
+    .main-title {
+        border-bottom: 3px double #2e4a3d;
+        padding-bottom: 20px;
+        margin-bottom: 50px;
+    }
+    .main-title h2 {
+        margin: 0;
+        font-size: 2.8em;
+        color: #2e4a3d;
+        letter-spacing: 2px;
+    }
+    .main-title p {
+        margin-top: 15px;
+        font-size: 1.2em;
+        font-style: italic;
+        color: #556b2f;
+    }
+
+    /* --- CÁC SECTION LỊCH SỬ --- */
+    .history-section {
+        background-color: #fafefe;
+        margin-bottom: 50px;
+        padding: 40px;
+        border-left: 6px solid #2e4a3d; /* Đổi sang màu xanh đậm cho đồng bộ */
+        border-radius: 0 10px 10px 0;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        transition: transform 0.3s;
+    }
+
+    .history-section:hover {
+        transform: translateY(-5px); /* Hiệu ứng nổi lên khi di chuột */
+    }
+
+    .history-section h3 {
+        font-size: 1.8em;
+        color: #2e4a3d;
+        margin-bottom: 20px;
+        border-bottom: 1px dashed #a2d2c2;
+        display: inline-block;
+        padding-bottom: 5px;
+    }
+
+    .history-section p {
+        line-height: 2;
+        font-size: 1.15em;
+        margin-bottom: 30px;
+        color: #333;
+    }
+
+    .history-section img {
+        width: 80%;
+        max-width: 600px;
+        height: auto;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        padding: 5px;
+        background: #fff;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    /* Footer Icon */
+    .footer-icon {
+        margin-top: 50px;
+        color: #556b2f;
+        font-size: 1.5em;
+        border-top: 1px solid #ccc;
+        padding-top: 20px;
+    }
+
+    @media (max-width: 768px) {
+        .decor-wrapper { display: none; }
+        .content-box { width: 90%; padding: 20px; }
+        .history-section img { width: 100%; }
+        .main-title h2 { font-size: 2em; }
+    }
+</style>
+</head>
+<body>
+
+<div class="decor-wrapper">
+    <div class="decor-item d-1" style="--r: -10deg;">🧋</div>
+    <div class="decor-item d-2" style="--r: 15deg;">🌿</div>
+    <div class="decor-item d-3">史</div> <div class="decor-item d-4" style="--r: 5deg;">⚫ ⚫</div>
+    <div class="decor-item d-5">🍃</div>
+    <div class="decor-item d-6">🍂</div>
+</div>
+
+<div class="content-box">
+
+    <nav>
+        <a href="index.html">← 返回首頁 (Back to Home)</a>
+    </nav>
+
+    <div class="main-title">
+        <h2>台灣珍珠奶茶的發展歷史</h2>
+        <p>融合東西方飲食文化的全球流行飲品</p>
+    </div>
+
+    <div class="history-section">
+        <h3>一、珍珠奶茶的起源</h3>
+        <p>
+            珍珠奶茶已成為全球知名的飲食文化現象，<br>
+            然而其發源地正是位於東亞的台灣。<br>
+            台灣被普遍視為珍珠奶茶的故鄉，<br>
+            並成功將此獨特的飲品文化推廣至世界各地。
+        </p>
+        <img src="images/history1.jpg" alt="珍珠奶茶起源">
+    </div>
+
+    <div class="history-section">
+        <h3>二、1980年代的創新發展</h3>
+        <p>
+            1980年代，台灣茶飲業者嘗試將傳統茶飲與鮮奶結合，<br>
+            創造出風味溫潤、口感豐富的新式飲品。<br>
+            這樣的創新不僅帶來全新的味覺體驗，<br>
+            也使珍珠奶茶迅速在台灣各地流行開來。
+        </p>
+        <img src="images/history2.jpg" alt="茶飲創新">
+    </div>
+
+    <div class="history-section">
+        <h3>三、從在地飲品走向國際</h3>
+        <p>
+            隨著台灣市場的成功，珍珠奶茶逐漸走向國際舞台。<br>
+            透過連鎖品牌的發展，<br>
+            珍珠奶茶進入亞洲、歐美及東南亞等地，<br>
+            成為代表台灣的經典飲品之一。
+        </p>
+        <img src="images/history3.jpg" alt="國際化珍珠奶茶">
+    </div>
+
+    <div class="history-section">
+        <h3>四、現代茶飲文化與產業</h3>
+        <p>
+            今日的珍珠奶茶不僅是一種飲品，<br>
+            更是一種生活風格與文化象徵。<br>
+            從茶葉品質、配料選擇、製作方式，<br>
+            到杯身設計與品牌形象，<br>
+            皆展現出台灣茶飲文化的創意與多樣性。
+        </p>
+        <img src="images/history4.jpg" alt="現代茶飲文化">
+    </div>
+
+    <div class="history-section">
+        <h3>五、年輕世代與珍珠奶茶</h3>
+        <p>
+            在社群媒體的影響下，珍珠奶茶也成為年輕族群的流行象徵。<br>
+            它不僅滿足味覺需求，<br>
+            更成為分享生活、展現個人風格的重要元素，<br>
+            使珍珠奶茶持續保持高度人氣與文化影響力。
+        </p>
+        <img src="images/history5.jpg" alt="珍珠奶茶文化">
+    </div>
+
+    <div class="footer-icon">
+        ❦
+    </div>
+
+</div>
+
+</body>
+</html>
